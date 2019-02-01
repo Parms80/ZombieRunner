@@ -51,9 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ClearArea.cs" />
+     <Compile Include="Assets\Scripts\Daycycle.cs" />
      <Compile Include="Assets\Scripts\Eyes.cs" />
      <Compile Include="Assets\Scripts\Helicopter.cs" />
+     <Compile Include="Assets\Scripts\InnerVoice.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\RadioSystem.cs" />
      <None Include="Assets\START PACK\Helicopter\Info.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 2017.3.1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

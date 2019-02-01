@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-
+	
 	public Transform playerSpawnPoints;
-	public bool respawn = false;
+	public GameObject landingAreaPrefab;
+	private bool respawn = false;
 	private Transform[] spawnPoints;
-	private bool lastToggle = false;
+	private bool lastRespawnToggle = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,16 +17,24 @@ public class Player : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
-		if (lastToggle != respawn) {
+		if (lastRespawnToggle != respawn) {
 			Respawn ();
 			respawn = false;
 		} else {
-			lastToggle = respawn;
+			lastRespawnToggle = respawn;
 		}
 	}
 
 	void Respawn() {
 		int i = Random.Range (1, spawnPoints.Length);
 		transform.position = spawnPoints [i].transform.position;
+	}
+
+	void OnFindClearArea() {
+		Invoke ("DropFlare", 3f);
+	}
+
+	void DropFlare() {
+		Instantiate (landingAreaPrefab, transform.position, transform.rotation);
 	}
 }
